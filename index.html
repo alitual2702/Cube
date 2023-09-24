@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+
+    <div class="main">
+    <span  class="a box">1</span>
+    <span  class="b box">2</span>
+    <span  class="c box">3</span>
+    <span  class="d box">4</span>
+    <span  class="e box">5</span>
+    <span  class="f box">6</span>
+</div>
+</div>
+<div class="div">ds</div>
+<script>
+    const main = document.querySelector(".main")
+    const div = document.querySelector(".div");
+
+    // Just Random Colors inserting in Div Class thats not same like box colors , it's just for style
+
+     let arr = ["Yellow","Blue","Red","Green","Black","Brown","Azure","Ivory","Teal","Silver","Purple"
+               ,"Navy blue","Pea green","Gray","Orange","Maroon","Charcoal","Aquamarine","Coral","Fuchsia"
+               ,"Wheat","Lime","Crimson","Khaki","Hot pink","Magenta","Olden","Plum","Olive","Cyan"]
+               let random = Math.floor(Math.random() * arr.length)
+
+            //   box moving with mousemove event
+
+    window.addEventListener("mousemove" , (e) => {
+        let axisx = e.clientX;
+        let axisy = e.clientY;
+        let deg = 360
+        let forx = Math.floor((axisx / window.innerWidth) * deg);
+        let fory = Math.floor((axisy / window.innerHeight)* deg);
+        main.style.transform = `rotateY(${forx}deg) rotateX(${fory}deg)`;
+        let bgColor =Math.floor((axisx / window.innerWidth) * arr.length) 
+        div.style.backgroundColor = arr[bgColor]
+    })
+</script>
+</body>
+</html>
