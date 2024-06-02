@@ -62,6 +62,17 @@
 
       //   box moving with mousemove event
 
+      window.addEventListener("drag", (e) => {
+        let axisx = e.clientX;
+        let axisy = e.clientY;
+        let deg = 360;
+        let forx = Math.floor((axisx / window.innerWidth) * deg);
+        let fory = Math.floor((axisy / window.innerHeight) * deg);
+        main.style.transform = `rotateY(${forx}deg) rotateX(${fory}deg)`;
+        let bgColor = Math.floor((axisx / window.innerWidth) * arr.length);
+        div.style.backgroundColor = arr[bgColor];
+      });
+
       window.addEventListener("mousemove", (e) => {
         let axisx = e.clientX;
         let axisy = e.clientY;
